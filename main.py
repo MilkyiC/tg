@@ -1,12 +1,10 @@
-import os
 import asyncio
+
 from aiogram import Bot, Dispatcher
+
 from app.handlers import router
-from dotenv import load_dotenv
+from settings import TOKEN
 
-load_dotenv()
-
-TOKEN = os.getenv('token_bot')
 
 async def main():
     bot = Bot(token=TOKEN)
@@ -15,8 +13,8 @@ async def main():
     await dp.start_polling(bot)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print('off')
+        print("off")
